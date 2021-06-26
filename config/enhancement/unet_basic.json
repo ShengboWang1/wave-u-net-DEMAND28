@@ -1,0 +1,20 @@
+{
+    "model": {
+        "module": "model.unet_basic",
+        "main": "Model",
+        "args": {}
+    },
+    "dataset": {
+        "module": "dataset.waveform_dataset_enhancement",
+        "main": "WaveformDataset",
+        "args": {
+            "dataset": "/content/drive/MyDrive/Forschungsarbeit/Wave-U-Net-DEMAND_28/my_test_dataset.txt",
+            "limit": null,
+            "offset": 0,
+            "sample_length": 16384
+        }
+    },
+    "custom": {
+        "sample_length": 16384
+    }
+}

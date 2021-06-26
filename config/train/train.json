@@ -1,0 +1,66 @@
+{
+    "seed": 0,
+    "description": "...des",
+    "root_dir": "/content/drive/MyDrive/Forschungsarbeit/Wave-U-Net-DEMAND_28/Experiments_30_04",
+    "cudnn_deterministic": false,
+    "trainer": {
+        "module": "trainer.trainer",
+        "main": "Trainer",
+        "epochs": 1200,
+        "save_checkpoint_interval": 10,
+        "validation": {
+            "interval": 10,
+            "find_max": true,
+            "custom": {
+                "visualize_audio_limit": 20,
+                "visualize_waveform_limit": 20,
+                "visualize_spectrogram_limit": 20,
+                "sample_length": 16384
+            }
+        }
+    },
+    "model": {
+        // "module": "model.unet_basic",
+        // "main": "Model",
+        "module": "model.rhr_net",
+        "main": "RHRNet",
+        "args": {}
+    },
+    "loss_function": {
+        "module": "model.loss",
+        "main": "mse_loss",
+        "args": {}
+    },
+    "optimizer": {
+        "lr": 0.0001,
+        "beta1": 0.9,
+        "beta2": 0.999
+    },
+    "train_dataset": {
+        "module": "dataset.waveform_dataset",
+        "main": "Dataset",
+        "args": {
+            "dataset": "/content/drive/MyDrive/Forschungsarbeit/Wave-U-Net-DEMAND_28/train_dataset.txt",
+            "limit": null,
+            "offset": 0,
+            "sample_length": 16384,
+            "mode": "train"
+        }
+    },
+    "validation_dataset": {
+        "module": "dataset.waveform_dataset",
+        "main": "Dataset",
+        "args": {
+            "dataset": "/content/drive/MyDrive/Forschungsarbeit/Wave-U-Net-DEMAND_28/test_dataset.txt",
+            "limit": null,
+            "offset": 0,
+            "mode": "validation"
+        }
+    },
+    "train_dataloader": {
+        "batch_size": 16,
+        "num_workers": 40,
+        "shuffle": true,
+        "pin_memory": true
+    }
+}
