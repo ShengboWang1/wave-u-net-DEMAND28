@@ -1,6 +1,6 @@
 # Wave-U-Net-for-Speech-Enhancement
 
-Implement [Wave-U-Net](https://arxiv.org/abs/1806.03185) by PyTorch, and migrate it to the speech enhancement.
+Implement [Wave-U-Net](https://arxiv.org/abs/1806.03185) by PyTorch, and migrate it to the speech enhancement. Dataset: DEMAND28
 
 ![](./doc/tensorboard.png)
 ![](./doc/audio.png)
